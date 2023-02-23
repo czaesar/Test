@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -24,9 +25,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         DB::table('users')->insert([
-            'name'=>Str::random(10),
+            'name'=>Str::random(4),
             'email'=>Str::random(10).'@gmail.com',
-            'password'=>Hash::make('password'),
+            'password'=>Str::random(5),
+            'remember_token' => Str::random(10),
         ]);
+
     }
 }
